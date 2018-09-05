@@ -1,0 +1,2 @@
+C:\Users\zwz\Documents\Unity\TableKeyboard\App\GeneratedProjects\UWP\Assembly-CSharp\Assembly-CSharp.csproj;x86
+C:\Users\zwz\Documents\Unity\TableKeyboard\App\TableKeyboard\TableKeyboard.csproj;x86
