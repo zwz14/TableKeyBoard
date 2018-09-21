@@ -27,6 +27,11 @@ public class DepthDataDisplayManager : MonoBehaviour
         StartTime = Time.time;
     }
 
+    public float get_smlTime()
+    {
+        return spatialMappingLastTime;
+    }
+
     // Update is called once per frame
     void Update()
     {
