@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Package xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" xmlns:uap2="http://schemas.microsoft.com/appx/manifest/uap/windows10/2" IgnorableNamespaces="uap uap2 mp" xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10">
+<Package xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" xmlns:uap2="http://schemas.microsoft.com/appx/manifest/uap/windows10/2" xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities" IgnorableNamespaces="uap uap2 mp rescap" xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10">
   <Identity Name="TableKeyboard" Publisher="CN=DefaultCompany" Version="1.0.0.0" />
   <mp:PhoneIdentity PhoneProductId="48a42406-7b05-4b17-a2e9-db53dcfca8f5" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
@@ -29,5 +29,8 @@
   </Applications>
   <Capabilities>
     <uap2:Capability Name="spatialPerception" />
+    <Capability Name="internetClient" />
+    <rescap:Capability Name="perceptionSensorsExperimental" />
+    <DeviceCapability Name="webcam" />
   </Capabilities>
 </Package>

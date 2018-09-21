@@ -232,6 +232,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\DebugWindow.cs" />
     <Compile Include="Assets\HoloToolkit\Boundary\Scripts\BoundaryManager.cs" />
     <Compile Include="Assets\HoloToolkit\Boundary\Scripts\Edge.cs" />
     <Compile Include="Assets\HoloToolkit\Boundary\Scripts\EdgeHelpers.cs" />
@@ -745,8 +746,11 @@
     <Compile Include="Assets\HoloToolkit\UX\Scripts\UsabilityUtilities.cs" />
     <Compile Include="Assets\NewBehaviourScript.cs" />
     <Compile Include="Assets\ObjectCollectionManager.cs" />
+    <Compile Include="Assets\PlaneTextureManager.cs" />
+    <Compile Include="Assets\Scripts\DepthDataDisplayManager.cs" />
     <Compile Include="Assets\Scripts\Placeable.cs" />
     <Compile Include="Assets\Scripts\PlaySpaceManager.cs" />
+    <Compile Include="Assets\Scripts\ShowTime.cs" />
     <Compile Include="Assets\Scripts\SpaceCollectionManager.cs" />
   </ItemGroup>
   <ItemGroup>
