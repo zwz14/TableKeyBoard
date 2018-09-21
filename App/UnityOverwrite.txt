@@ -8,9 +8,9 @@
 TableKeyboard.sln: modified
 GeneratedProjects\UWP\Assembly-CSharp\project.json: 1D02BC64BAC0D041019673A1C4C51737
 TableKeyboard\App.cs: D7D08416AB051009B6D0EB4E16A20721
-TableKeyboard\Package.appxmanifest: 1FED6FBD4D746956FB37C3B7E378DFAF
+TableKeyboard\Package.appxmanifest: modified
 TableKeyboard\project.json: 1D02BC64BAC0D041019673A1C4C51737
-TableKeyboard\TableKeyboard.csproj: 1C1EBF6FCDEA2B57758ADA652175D1EE
+TableKeyboard\TableKeyboard.csproj: D7C57EEA0AB60E7009D5904398E0DD00
 TableKeyboard\TableKeyboard.csproj.user: modified
 TableKeyboard\Assets\SplashScreen.scale-200.png: A85C1D7624B6902CF8CEBD6F0200A826
 TableKeyboard\Assets\Square150x150Logo.scale-200.png: E02834B4A5DFB97FF8E212C1CACBB084
