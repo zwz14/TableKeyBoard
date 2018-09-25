@@ -5,7 +5,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3229A911-3710-47D6-A4C2-FE6F86179A6B}</ProjectGuid>
+    <ProjectGuid>{d204e72f-cf9a-4a25-8f08-7d4085f349d7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AssemblyCSharpWSA</RootNamespace>
@@ -130,6 +130,7 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+
     <Reference Include="UnityEngine.TextRenderingModule">
       <HintPath>$(UnityWSASolutionDir)$(UnityWSASolutionName)\Unprocessed\UnityEngine.TextRenderingModule.dll</HintPath>
       <Private>False</Private>
@@ -354,15 +355,12 @@
       <HintPath>$(UnityWSASolutionDir)$(UnityWSASolutionName)\Unprocessed\GLTFSerializationUWP.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <SDKReference Include="WindowsDesktop, Version=10.0.17134.0" />
-    <SDKReference Include="WindowsIoT, Version=10.0.17134.0" />
-    <SDKReference Include="WindowsMobile, Version=10.0.17134.0" />
-    <SDKReference Include="WindowsTeam, Version=10.0.17134.0" />
+    <SDKReference Include="WindowsDesktop, Version=10.0.17134.0"/>
+    <SDKReference Include="WindowsIoT, Version=10.0.17134.0"/>
+    <SDKReference Include="WindowsMobile, Version=10.0.17134.0"/>
+    <SDKReference Include="WindowsTeam, Version=10.0.17134.0"/>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="$(UnityProjectDir)Assets\DebugWindow.cs">
-      <Link>DebugWindow.cs</Link>
-    </Compile>
     <Compile Include="$(UnityProjectDir)Assets\HoloToolkit\Boundary\Scripts\BoundaryManager.cs">
       <Link>HoloToolkit\Boundary\Scripts\BoundaryManager.cs</Link>
     </Compile>
@@ -1899,17 +1897,20 @@
     <Compile Include="$(UnityProjectDir)Assets\NewBehaviourScript.cs">
       <Link>NewBehaviourScript.cs</Link>
     </Compile>
-    <Compile Include="$(UnityProjectDir)Assets\ObjectCollectionManager.cs">
-      <Link>ObjectCollectionManager.cs</Link>
-    </Compile>
-    <Compile Include="$(UnityProjectDir)Assets\PlaneTextureManager.cs">
-      <Link>PlaneTextureManager.cs</Link>
+    <Compile Include="$(UnityProjectDir)Assets\Scripts\DebugWindow.cs">
+      <Link>Scripts\DebugWindow.cs</Link>
     </Compile>
     <Compile Include="$(UnityProjectDir)Assets\Scripts\DepthDataDisplayManager.cs">
       <Link>Scripts\DepthDataDisplayManager.cs</Link>
     </Compile>
+    <Compile Include="$(UnityProjectDir)Assets\Scripts\ObjectCollectionManager.cs">
+      <Link>Scripts\ObjectCollectionManager.cs</Link>
+    </Compile>
     <Compile Include="$(UnityProjectDir)Assets\Scripts\Placeable.cs">
       <Link>Scripts\Placeable.cs</Link>
+    </Compile>
+    <Compile Include="$(UnityProjectDir)Assets\Scripts\PlaneTextureManager.cs">
+      <Link>Scripts\PlaneTextureManager.cs</Link>
     </Compile>
     <Compile Include="$(UnityProjectDir)Assets\Scripts\PlaySpaceManager.cs">
       <Link>Scripts\PlaySpaceManager.cs</Link>
@@ -1928,13 +1929,13 @@
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
-  <PropertyGroup>
+    <PropertyGroup>
     <TargetsTriggeredByCompilation>$(TargetsTriggeredByCompilation);RunSerializationWeaver</TargetsTriggeredByCompilation>
   </PropertyGroup>
   <Target Name="RunSerializationWeaver" Condition="'$(BuildingProject)' == 'true'">
     <Message Importance="high" Text="Running SerializationWeaver..." />
     <Move SourceFiles="@(IntermediateAssembly)" DestinationFolder="$(TargetDir)Unprocessed" OverwriteReadOnlyFiles="true" />
-    <Move SourceFiles="@(IntermediateAssembly->'%(RelativeDir)%(Filename).pdb')" DestinationFolder="$(TargetDir)Unprocessed" Condition="Exists('@(IntermediateAssembly->'%(RelativeDir)%(Filename).pdb')')" OverwriteReadOnlyFiles="true" />
+    <Move SourceFiles="@(IntermediateAssembly-&gt;'%(RelativeDir)%(Filename).pdb')" DestinationFolder="$(TargetDir)Unprocessed" Condition="Exists('@(IntermediateAssembly-&gt;'%(RelativeDir)%(Filename).pdb')')" OverwriteReadOnlyFiles="true" />
     <Exec Command="&quot;$(UnityWSAToolsDir)SerializationWeaver\SerializationWeaver.exe&quot; &quot;$(TargetDir)Unprocessed\$(TargetFileName)&quot; &quot;-pdb&quot; &quot;-verbose&quot; &quot;-unity-engine=$(UnityWSASolutionDir)$(UnityWSASolutionName)\Unprocessed\UnityEngine.CoreModule.dll&quot; &quot;$([System.IO.Path]::GetFullPath('$(IntermediateOutputPath)').TrimEnd('\'))&quot; &quot;-lock=$([System.IO.Path]::Combine('$(ProjectDir)', 'project.lock.json'))&quot; &quot;@C:\Users\zwz\Documents\Unity\TableKeyboard\App\GeneratedProjects\UWP\Assembly-CSharp\SerializationWeaverArgs.txt&quot; &quot;-additionalAssemblyPath=$(UnityWSASolutionDir)$(UnityWSASolutionName)\Unprocessed&quot; &quot;-unity-networking=$(UnityWSASolutionDir)$(UnityWSASolutionName)\Unprocessed\UnityEngine.Networking.dll&quot;" />
     <Message Importance="high" Text="SerializationWeaver done." />
   </Target>

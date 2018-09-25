@@ -10,7 +10,7 @@ GeneratedProjects\UWP\Assembly-CSharp\project.json: 1D02BC64BAC0D041019673A1C4C5
 TableKeyboard\App.cs: D7D08416AB051009B6D0EB4E16A20721
 TableKeyboard\Package.appxmanifest: modified
 TableKeyboard\project.json: 1D02BC64BAC0D041019673A1C4C51737
-TableKeyboard\TableKeyboard.csproj: 1681C92833640E6A1F8D6185E488E866
+TableKeyboard\TableKeyboard.csproj: 6E2E379081AB29F94BD2CD77B52F7B6A
 TableKeyboard\TableKeyboard.csproj.user: modified
 TableKeyboard\Assets\SplashScreen.scale-200.png: A85C1D7624B6902CF8CEBD6F0200A826
 TableKeyboard\Assets\Square150x150Logo.scale-200.png: E02834B4A5DFB97FF8E212C1CACBB084

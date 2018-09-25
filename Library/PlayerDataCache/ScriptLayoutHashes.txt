@@ -209,6 +209,7 @@ c4fd2ef7468c68e11d03e50c6e8b323d Assembly-CSharp.dll:HoloToolkit.Unity.Buttons.A
 219487901c928246931c9d354ef2010b Assembly-CSharp.dll:HoloToolkit.UX.ToolTips.ToolTip
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.PlaneTextureManager
 a791e7387cb4113e3b29c2bbd8199b96 Assembly-CSharp.dll:HoloToolkit.Unity.UX.DistorterGravity
+bc5e42238830a679a2ca165d77027cef Assembly-CSharp.dll:.PrefabInitialManager
 af1b899928fa73a7824f1b26518097f6 Assembly-CSharp.dll:HoloToolkit.Unity.Buttons.MeshButton
 c2706c3a189db8ed05d27e1ad76591fb Assembly-CSharp.dll:.PlaySpaceManager
 44f24521fcafda017d17ab4dbb73c0cc Assembly-CSharp.dll:HoloToolkit.UX.ToolTips.ToolTipConnector
@@ -344,4 +345,3 @@ f38ae1c8ae3217e7ea10aae9fcc36f61 Assembly-CSharp.dll:.SpaceCollectionManager
 97e0d51968a9f637800faf850b1d95a2 Assembly-CSharp.dll:HoloToolkit.Unity.UX.BoundingBoxRig
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.LineBaseEditor
 b74d6034034deeffc1401e25ca9027a5 Assembly-CSharp.dll:HoloToolkit.Unity.Buttons.CompoundButton
-bc5e42238830a679a2ca165d77027cef Assembly-CSharp.dll:.PrefabInitialManager

@@ -363,7 +363,7 @@
 
   <ItemGroup>
     <ProjectReference Include="C:\Users\zwz\Documents\Unity\TableKeyboard\App\GeneratedProjects\UWP\Assembly-CSharp\Assembly-CSharp.csproj">
-      <Project>{97ef6051-e1db-40e7-86a2-2949bae3ba30}</Project>
+      <Project>{d204e72f-cf9a-4a25-8f08-7d4085f349d7}</Project>
       <Name>Assembly-CSharp</Name>
       <Private>False</Private>
     </ProjectReference>
