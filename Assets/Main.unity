@@ -340,7 +340,7 @@ Prefab:
     - target: {fileID: 114425946032302072, guid: e274ddb3179602a45aff1414621fd4f4,
         type: 2}
       propertyPath: scanTime
-      value: 20
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 114901682487072596, guid: e274ddb3179602a45aff1414621fd4f4,
         type: 2}
