@@ -751,6 +751,7 @@
     <Compile Include="Assets\Scripts\PlaneTextureManager.cs" />
     <Compile Include="Assets\Scripts\PlaySpaceManager.cs" />
     <Compile Include="Assets\Scripts\PrefabInitialManager.cs" />
+    <Compile Include="Assets\Scripts\ReadBytesFile.cs" />
     <Compile Include="Assets\Scripts\ShowTime.cs" />
     <Compile Include="Assets\Scripts\SpaceCollectionManager.cs" />
   </ItemGroup>

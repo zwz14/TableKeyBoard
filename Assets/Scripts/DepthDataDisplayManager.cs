@@ -22,6 +22,7 @@ public class DepthDataDisplayManager : MonoBehaviour
     private float spatialMappingLastTime = new PlaySpaceManager().scanTime;
 
     // when index_num%10=0, save image
+    private bool showCameraIntrinsic = false;
     private int index_num = 1;
     private int index_num1 = 1;
 
@@ -112,58 +113,67 @@ public class DepthDataDisplayManager : MonoBehaviour
         {
             var videomediaframe = mediaframereference?.VideoMediaFrame;
             var softwarebitmap = videomediaframe?.SoftwareBitmap;
-
-            /*
-             * use pgmStorage() method to save bitmap image 
-             * in TableKeyboard/localAppData/Template, this method
-             * should be called in main thread
-             */
-            /*
-           UnityEngine.WSA.Application.InvokeOnAppThread(() =>
-           {
-
-               //save 12 image in local app data file
-               if (index_num % 10 == 0 && index_num > 180 && index_num <= 300)
-               {                      
-                   pgmStorage(softwarebitmap);
-                   Debug.Log("succeed in saving image" + "-index_num:" + index_num.ToString());
-               }
-               index_num++;
-           }, true);
-           */
+            /**/
+            UnityEngine.WSA.Application.InvokeOnAppThread(() =>
+            {
+                try
+                {
+                    Guid MFSampleExtension_SensorStreaming_CameraIntrinsics;
+                    Guid.TryParse("5dcc7829-9471-4d78-8c27-5b2b9a0ec5ef", out MFSampleExtension_SensorStreaming_CameraIntrinsics);
+                    System.Object value;
+                    mediaframereference.Properties.TryGetValue(MFSampleExtension_SensorStreaming_CameraIntrinsics, out value);
+                    
+                    if (!showCameraIntrinsic)
+                    {
+                        Debug.Log("value tye: " + value.GetType().ToString());
+                        showCameraIntrinsic = true;
+                    }
+                }
+                catch (Exception e)
+                {
+                    Debug.Log(e.ToString());
+                }
+                
+            }, true);
             switch (mediaframereference.SourceKind.ToString())
             {
                 case "Infrared":
                     //Debug.Log("sourceKind is Infrared, save image");
-                    /**/
+                    /*
+                     * use pgmStorage() method to save bitmap image 
+                     * in TableKeyboard/localAppData/Template, this method
+                     * should be called in main thread
+                     */
+                    /*
                     UnityEngine.WSA.Application.InvokeOnAppThread(() =>
                     {
 
                         //save image in local app data file
-                        if (index_num % 10 == 0 && index_num > 180 && index_num <= 210)
+                        if (index_num % 10 == 0 && index_num > 100 && index_num <= 130)
                         {
                             pgmStorage(softwarebitmap, "Infrared");
                             Debug.Log("succeed in saving image" + "-index_num: Infrared" + index_num.ToString() + " " + Time.time.ToString());
                         }
                         index_num++;
                     }, true);
-                    
+                    */
                     break;
                 case "Depth":
                     //Debug.Log("sourceKind is Depth, display image");
-                    /**/
+                    /*
                     UnityEngine.WSA.Application.InvokeOnAppThread(() =>
                     {
 
                         //save image in local app data file
-                        if (index_num % 10 == 0 && index_num > 180 && index_num <= 210)
+                        if (index_num % 10 == 0 && index_num > 100 && index_num <= 130)
                         {
                             pgmStorage(softwarebitmap, "Depth");
                             Debug.Log("succeed in saving image" + "-index_num: Depth" + index_num.ToString() + " " + Time.time.ToString());
                         }
                         index_num1++;
                     }, true);
-                    /*
+                    */
+                    /**/
                     if (softwarebitmap != null)
                     {
                         softwarebitmap = SoftwareBitmap.Convert(softwarebitmap, BitmapPixelFormat.Rgba8, BitmapAlphaMode.Premultiplied);
@@ -203,7 +213,7 @@ public class DepthDataDisplayManager : MonoBehaviour
                         }, true);
                     }
                     mediaframereference.Dispose();
-                    */
+                    
                     break;
             }         
         }

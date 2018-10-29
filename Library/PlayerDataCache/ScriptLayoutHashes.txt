@@ -345,3 +345,4 @@ f38ae1c8ae3217e7ea10aae9fcc36f61 Assembly-CSharp.dll:.SpaceCollectionManager
 97e0d51968a9f637800faf850b1d95a2 Assembly-CSharp.dll:HoloToolkit.Unity.UX.BoundingBoxRig
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.LineBaseEditor
 b74d6034034deeffc1401e25ca9027a5 Assembly-CSharp.dll:HoloToolkit.Unity.Buttons.CompoundButton
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.ReadBytesFile
