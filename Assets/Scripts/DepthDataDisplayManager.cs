@@ -20,15 +20,12 @@ public class DepthDataDisplayManager : MonoBehaviour
     private bool startMedia = false;
     private float StartTime;
     private float spatialMappingLastTime = new PlaySpaceManager().scanTime;
-
     // when index_num%10=0, save image
-    private bool showCameraIntrinsic = false;
     private int index_num = 1;
     private int index_num1 = 1;
-
     private Texture2D tex = null;
     private byte[] bytes = null;
-    // Use this for initialization
+
     void Start()
     {
         StartTime = Time.time;
@@ -61,11 +58,8 @@ public class DepthDataDisplayManager : MonoBehaviour
         
         var mediaFrameSourceGroupList = await MediaFrameSourceGroup.FindAllAsync();
         var mediaFrameSourceGroup = mediaFrameSourceGroupList[0];
-        //var mediaFrameSourceInfo = mediaFrameSourceGroup.SourceInfos[0];
 
         Debug.Log("mediaFrameSourceGroup name:" + mediaFrameSourceGroup.DisplayName.ToString());
-
-        
 
         var mediaCapture = new MediaCapture();
         var settings = new MediaCaptureInitializationSettings()
@@ -79,24 +73,15 @@ public class DepthDataDisplayManager : MonoBehaviour
         try
         {
             await mediaCapture.InitializeAsync(settings);
-            /* --- test --- */
             for(int i = 0; i < 2; i++)
             {
                 var mediaFrameSourceInfo = mediaFrameSourceGroup.SourceInfos[i];
                 var mediaFrameSource = mediaCapture.FrameSources[mediaFrameSourceInfo.Id];
                 var mediaframereader = await mediaCapture.CreateFrameReaderAsync(mediaFrameSource, mediaFrameSource.CurrentFormat.Subtype);
-                Debug.Log("mediaFrameSource subtype" + i + " " + mediaFrameSource.CurrentFormat.Subtype.ToString());
+                //Debug.Log("mediaFrameSource subtype" + i + " " + mediaFrameSource.CurrentFormat.Subtype.ToString());
                 mediaframereader.FrameArrived += FrameArrived;
                 await mediaframereader.StartAsync();
             }
-            /*--------------*/
-
-            /*
-            var mediaFrameSource = mediaCapture.FrameSources[mediaFrameSourceInfo.Id];
-            var mediaframereader = await mediaCapture.CreateFrameReaderAsync(mediaFrameSource, mediaFrameSource.CurrentFormat.Subtype);
-            mediaframereader.FrameArrived += FrameArrived;
-            await mediaframereader.StartAsync();
-            */
         }
         catch (Exception e)
         {
@@ -112,35 +97,12 @@ public class DepthDataDisplayManager : MonoBehaviour
         if (mediaframereference != null)
         {
             var videomediaframe = mediaframereference?.VideoMediaFrame;
-            var softwarebitmap = videomediaframe?.SoftwareBitmap;
-            /**/
-            UnityEngine.WSA.Application.InvokeOnAppThread(() =>
-            {
-                try
-                {
-                    Guid MFSampleExtension_SensorStreaming_CameraIntrinsics;
-                    Guid.TryParse("5dcc7829-9471-4d78-8c27-5b2b9a0ec5ef", out MFSampleExtension_SensorStreaming_CameraIntrinsics);
-                    System.Object value;
-                    mediaframereference.Properties.TryGetValue(MFSampleExtension_SensorStreaming_CameraIntrinsics, out value);
-                    
-                    if (!showCameraIntrinsic)
-                    {
-                        Debug.Log("value tye: " + value.GetType().ToString());
-                        showCameraIntrinsic = true;
-                    }
-                }
-                catch (Exception e)
-                {
-                    Debug.Log(e.ToString());
-                }
-                
-            }, true);
+            var softwarebitmap = videomediaframe?.SoftwareBitmap;           
             switch (mediaframereference.SourceKind.ToString())
             {
                 case "Infrared":
-                    //Debug.Log("sourceKind is Infrared, save image");
                     /*
-                     * use pgmStorage() method to save bitmap image 
+                     * use pgmStorage() method to save depth image 
                      * in TableKeyboard/localAppData/Template, this method
                      * should be called in main thread
                      */
@@ -156,10 +118,14 @@ public class DepthDataDisplayManager : MonoBehaviour
                         }
                         index_num++;
                     }, true);
-                    */
+                    */                   
                     break;
                 case "Depth":
-                    //Debug.Log("sourceKind is Depth, display image");
+                    /*
+                     * use pgmStorage() method to save IR image 
+                     * in TableKeyboard/localAppData/Template, this method
+                     * should be called in main thread
+                     */
                     /*
                     UnityEngine.WSA.Application.InvokeOnAppThread(() =>
                     {
@@ -173,7 +139,6 @@ public class DepthDataDisplayManager : MonoBehaviour
                         index_num1++;
                     }, true);
                     */
-                    /**/
                     if (softwarebitmap != null)
                     {
                         softwarebitmap = SoftwareBitmap.Convert(softwarebitmap, BitmapPixelFormat.Rgba8, BitmapAlphaMode.Premultiplied);
@@ -212,10 +177,11 @@ public class DepthDataDisplayManager : MonoBehaviour
                             tex.Apply();
                         }, true);
                     }
-                    mediaframereference.Dispose();
                     
+                    //mediaframereference.Dispose();
                     break;
-            }         
+            }
+            
         }
     }
 
@@ -265,19 +231,7 @@ public class DepthDataDisplayManager : MonoBehaviour
         }
         stream.Dispose(); 
     }
-
-    private byte[] process_bytes(byte[] bytes)
-    {
-        int length = bytes.Length;
-        for(int i = 0; i < length/2; i++)
-        {
-            byte temp = bytes[2 * i + 1];
-            bytes[2 * i + 1] = bytes[2 * i];
-            bytes[2 * i] = temp;
-        }
-        return bytes;
-    }
-
+    
     private async Task<StorageFile> FindTempStorageFileAsync_pgm(string sourceKind)
     {
         Debug.Log("Enter FindTempStorageFileAsync");
@@ -287,5 +241,19 @@ public class DepthDataDisplayManager : MonoBehaviour
         outputFile = await temperoryStorageFolder.CreateFileAsync(outputFileName, CreationCollisionOption.GenerateUniqueName);
         return outputFile;
     }
+
+    // exchange high 8 bits with low 8 bits
+    private byte[] process_bytes(byte[] bytes)
+    {
+        int length = bytes.Length;
+        for (int i = 0; i < length / 2; i++)
+        {
+            byte temp = bytes[2 * i + 1];
+            bytes[2 * i + 1] = bytes[2 * i];
+            bytes[2 * i] = temp;
+        }
+        return bytes;
+    }
+
 #endif
 }

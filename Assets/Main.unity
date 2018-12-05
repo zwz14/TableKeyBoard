@@ -347,7 +347,7 @@ Prefab:
     - target: {fileID: 114425946032302072, guid: e274ddb3179602a45aff1414621fd4f4,
         type: 2}
       propertyPath: scanTime
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 114901682487072596, guid: e274ddb3179602a45aff1414621fd4f4,
         type: 2}
@@ -486,6 +486,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2fdbefc544d8b945b01da70f60b3d61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  z_compensate_bytes: []
 --- !u!1001 &1614275170
 Prefab:
   m_ObjectHideFlags: 0

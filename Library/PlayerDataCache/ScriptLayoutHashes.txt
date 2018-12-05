@@ -312,6 +312,7 @@ d62a422b2910567513bd772ce37cf94e Assembly-CSharp.dll:HoloToolkit.Unity.AudioEven
 3dcfd84d20deaace85b9ca45b0051c46 Assembly-CSharp.dll:HoloToolkit.UX.Dialog.DialogShell
 edd06c164d6a92966b90a7763ab8511a Assembly-CSharp.dll:HoloToolkit.Unity.SolverBodyLock
 de58daf7a7585c93b4a043e238d5431c Assembly-CSharp.dll:HoloToolkit.Unity.UX.Spline
+96b574a9e470898bea0bf57579dcc471 Assembly-CSharp.dll:.ReadBytesFile
 960588de1ff099aa2d1b4ff55adb229b Assembly-CSharp.dll:HoloToolkit.Unity.InputModule.TriggerButton
 7000360c28a9dd6e5169290e63863ba5 Assembly-CSharp.dll:HoloToolkit.Unity.Receivers.ToggleActiveReceiver
 b33db881aedddc764e35560d6e13fac5 Assembly-CSharp.dll:HoloToolkit.UX.Buttons.DialogButton
@@ -345,4 +346,3 @@ f38ae1c8ae3217e7ea10aae9fcc36f61 Assembly-CSharp.dll:.SpaceCollectionManager
 97e0d51968a9f637800faf850b1d95a2 Assembly-CSharp.dll:HoloToolkit.Unity.UX.BoundingBoxRig
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.LineBaseEditor
 b74d6034034deeffc1401e25ca9027a5 Assembly-CSharp.dll:HoloToolkit.Unity.Buttons.CompoundButton
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.ReadBytesFile
