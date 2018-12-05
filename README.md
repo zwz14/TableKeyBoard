@@ -54,7 +54,7 @@ ReadBytesFile.cs: load z_compensate.bytes from Assets/Resource
 
 4) where the depth and IR image store in
 
-	access Hololens with Windows Device Portal(use IP), in System/File explorer/LocalAppData/TableKeyBoard/TempState
+	Firstly, eliminate the annotation of code about storing image in DepthDataDisplayManager.cs and run the project.After that, access Hololens with Windows Device Portal(use IP), in System/File explorer/LocalAppData/TableKeyBoard/TempState
 
 5) where I get keyboard model
 
