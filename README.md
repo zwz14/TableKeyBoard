@@ -45,8 +45,8 @@ ReadBytesFile.cs: load z_compensate.bytes from Assets/Resource
    	Hololens Research Mode: https://docs.microsoft.com/en-us/windows/mixed-reality/research-mode
 
    github project: https://github.com/akihiro0105/HoloLensResearchmodeDemoWithUnity
-
-   				   http://akihiro-document.azurewebsites.net/post/hololens_researchmode2/
+                   
+		   http://akihiro-document.azurewebsites.net/post/hololens_researchmode2/
 
 3) why change 8 high bits with low 8 bits 
 
